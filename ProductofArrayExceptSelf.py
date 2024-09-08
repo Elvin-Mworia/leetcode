@@ -24,5 +24,26 @@ def productExceptSelf(nums: list[int]) -> list[int]:
                 prod*=a
             res.append(prod)
         return res
-print(productExceptSelf([0,0,0,0]))
+print(productExceptSelf([0,0]))
 
+def productExceptSelfSol2(nums: list[int])->list[int] :
+        numsdic={}
+        res=[]
+        for i in range(len(nums)): 
+            elem=[]
+            numsdic[i]=elem
+        for b in range(len(numsdic)):
+            numstomul=numsdic.get(b)
+            for a in range(len(nums)):
+                if a!=b:
+                   numstomul.append(nums[a]) 
+            numsdic[b]=numstomul
+        for k,v in numsdic.items():
+             prod=1
+             numstomul=v
+             for a in numstomul:
+                prod*=a
+             res.append(prod)
+        return res
+
+print(productExceptSelfSol2([0,0]))
