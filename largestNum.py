@@ -1,0 +1,16 @@
+from functools import cmp_to_key
+class Solution:
+    def largest(self,nums:list[int])->str:
+        for i,n in enumerate(nums):
+            nums[i]=str(n)
+        def compare(n1,n2):
+            if n1+n2>n2+n1:
+                return -1
+            else:
+                return 1
+
+        nums=sorted(nums,key=cmp_to_key(compare))
+        return str(int("".join(nums)))
+
+problem=Solution()
+print(problem.largest([9,54,34,3,30]))
